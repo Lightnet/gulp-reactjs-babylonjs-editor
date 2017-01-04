@@ -1,5 +1,8 @@
 //import HelloWorld from './hello-world';
 
+//import 'react-select/dist/react-select.css';
+//console.log(test);
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import MyFirstGrid from './myfirstgrid';
@@ -18,6 +21,19 @@ ReactDOM.render(
     <LayoutEditor/>,
     document.querySelector('.root')
 );
+
+
+//import FileSelect from './fileselect';
+//ReactDOM.render(
+    //<FileSelect />,
+    //document.querySelector('.root')
+//);
+
+//import DropDownMenu from './dropdownmenu';
+//ReactDOM.render(
+    //<DropDownMenu />,
+    //document.querySelector('.root')
+//);
 
 //ReactDOM.render(
 //  <MyEditor />,

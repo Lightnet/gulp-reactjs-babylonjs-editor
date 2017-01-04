@@ -1,23 +1,26 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 require('./babylon.min.js');
+
+import FileSelect from './fileselect';
 
 class Reactbabylonjs extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {game:props.game};
+        console.log(props);
+        //console.log(this);
     }
-
     //https://facebook.github.io/react/docs/state-and-lifecycle.html
     //The componentDidMount() hook runs after the component output has been rendered to the DOM.
     componentDidMount(){
         this.init();
     }
-
     componentWillUnmount() {
         //clearInterval(this.timerID);
     }
-
     init(){
         console.log(this);
         // get the canvas DOM element
@@ -67,11 +70,23 @@ class Reactbabylonjs extends React.Component {
         engine.runRenderLoop(function(){
             scene.render();
         });
+        //console.log(this.state);
+        //this.state.game = scene;
+        //console.log(this.state);
+
+        this.props.game = scene;
+
+        console.log(this.props.game);
 
         // the canvas/window resize event handler
         window.addEventListener('resize', function(){
             engine.resize();
         });
+
+        ReactDOM.render(
+          <FileSelect game={scene} />,
+          document.getElementById('header')
+        );
 
     }
 
